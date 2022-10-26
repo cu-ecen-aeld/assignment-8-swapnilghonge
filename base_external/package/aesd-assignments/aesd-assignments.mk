@@ -14,6 +14,10 @@ AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-swap
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
+
+AESD_ASSIGNMENTS_MODULE_SUBDIRS = aesd-char-driver
+AESD_ASSIGNMENTS_MODULE_SUBDIRS += server
+
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/finder-app all
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server clean
@@ -43,8 +47,7 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 endef
 
 
-AESD_ASSIGNMENTS_MODULE_SUBDIRS = aesd-char-driver
-AESD_ASSIGNMENTS_MODULE_SUBDIRS += server
+
 
 $(eval $(kernel-module))
 $(eval $(generic-package))
